@@ -1,0 +1,17 @@
+<%= if MakeupFormatter.Fragments.type(fragment) == :line do %>
+  <% {:line, %{number: number} = metadata, tokens_html} = fragment %>
+  <%= if Map.get(metadata, :css_class, nil) do %>
+  <tr class="<%= metadata.css_class %>">
+  <% else %>
+  <tr>
+  <% end %>
+  <td class="line_number"><%= number %></td>
+  <td class="code_fragment"><%= tokens_html %></td>
+  </tr>
+<% end %>
+<%= if MakeupFormatter.Fragments.type(fragment) == :html do %>
+  <% {:html, inner_html} = fragment %>
+  <tr>
+  <td colspan="2" class="html_fragment"><%= inner_html %></td>
+  </tr>
+<% end %>

@@ -1,0 +1,7 @@
+<table class="highlight">
+  <tbody>
+  <%= for fragment <- fragments do %>
+    <%= eex_render_row(fragment) %>
+  <% end %>
+  </tbody>
+</table>

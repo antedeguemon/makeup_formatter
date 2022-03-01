@@ -1,0 +1,39 @@
+<html>
+  <head>
+    <style>
+      <%= css %>
+       
+      body {
+        font-size: 12px;
+        font-family: ui-monospace,SFMono-Regular,SF Mono,Menlo,Consolas,Liberation Mono,monospace;
+      }
+
+      .line_number {
+        user-select: none;
+        font-size: 12px;
+        line-height: 20px;
+        text-align: right;
+        padding-right: 10px;        
+      }
+
+      .code_fragment {
+        font-size: 12px;
+        line-height: 20px;
+        word-wrap: break-word;
+        white-space: pre-wrap;
+        font-family: ui-monospace,SFMono-Regular,SF Mono,Menlo,Consolas,Liberation Mono,monospace;
+      }
+
+      .html_fragment {
+        padding: 10px;
+        border: 1px solid #999;
+        background: #fff;
+        color: #000;
+        font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji";
+      }
+    </style>
+  </head>
+  <body>
+    <%= inner_html %>
+  </body>
+</html>
