@@ -9,7 +9,7 @@ that provides some cool extra features:
 - Inserting HTML elements into your highlighted code
 - It is also compatible with [Phoenix Live View](https://github.com/phoenixframework/phoenix_live_view)
 
-Check a demo of highlighted code highlighted by Makeup using MakeupFormatter
+Check a demo of code highlighted by Makeup using MakeupFormatter
 [here](https://vicente.pl/code/code.html).
 
 ## Running

@@ -71,6 +71,7 @@ defmodule MakeupFormatter.HTMLFormatter do
       for {type, meta, value} <- tokens do
         css_class = Makeup.Token.Utils.css_class_for_token_type(type)
         data_group_id = if meta[:group_id], do: ~s( data-group-id=""), else: ""
+        # TODO: Use wrapped structure
 
         ~s(<span class="#{css_class}"#{data_group_id} phx-click="token_click" phx-value-data="#{value}" phx-value-line_number="#{line_number}">#{value}</span>)
       end
