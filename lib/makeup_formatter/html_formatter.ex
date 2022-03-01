@@ -52,31 +52,39 @@ defmodule MakeupFormatter.HTMLFormatter do
       {:line, %{visible?: false}, _tokens} -> false
       _ -> true
     end)
-    |> format_fragments_as_html()
+    |> format_fragment_tokens()
     |> eex_render_table()
   end
 
-  defp format_fragments_as_html(fragments) do
+  defp format_fragment_tokens(fragments) do
     Enum.map(fragments, fn
-      {:line, %{number: index} = metadata, tokens} ->
-        {:line, metadata, format_tokens(index, tokens)}
-
-      other ->
-        other
+      {:line, %{visible?: true} = metadata, tokens} -> {:line, metadata, format_tokens(tokens)}
+      other -> other
     end)
   end
 
-  defp format_tokens(line_number, tokens) do
-    tokens_html =
-      for {type, meta, value} <- tokens do
-        css_class = Makeup.Token.Utils.css_class_for_token_type(type)
-        data_group_id = if meta[:group_id], do: ~s( data-group-id=""), else: ""
-        # TODO: Use wrapped structure
+  defp format_tokens(tokens) do
+    tokens
+    |> Enum.map(&format_token/1)
+    |> Enum.join("")
+  end
 
-        ~s(<span class="#{css_class}"#{data_group_id} phx-click="token_click" phx-value-data="#{value}" phx-value-line_number="#{line_number}">#{value}</span>)
-      end
+  defp format_token({:wrapper, tag, html_attributes, tokens}) do
+    ~s(<#{tag}#{format_attributes(html_attributes)}>#{format_tokens(tokens)}</#{tag}>)
+  end
 
-    Enum.join(tokens_html, "")
+  defp format_token({type, meta, value}) do
+    css_class = Makeup.Token.Utils.css_class_for_token_type(type)
+    data_group_id = if meta[:group_id], do: ~s( data-group-id=""), else: ""
+
+    ~s(<span class="#{css_class}"#{data_group_id}>#{value}</span>)
+  end
+
+  defp format_attributes(html_attributes) do
+    # HACKY! Needs to be changed in the future
+    Enum.reduce(html_attributes, "", fn {name, value}, acc ->
+      acc <> " " <> name <> "=\"" <> value <> "\""
+    end)
   end
 
   #

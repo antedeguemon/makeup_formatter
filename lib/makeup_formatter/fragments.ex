@@ -3,6 +3,8 @@ defmodule MakeupFormatter.Fragments do
   Contains operations over highlighted blocks.
   """
 
+  alias MakeupFormatter.Fragments.Mutations
+
   @spec type(MakeupFormatter.fragment()) :: :line | :html
   def type({:line, _, _}), do: :line
   def type({:html, _}), do: :html
@@ -14,7 +16,6 @@ defmodule MakeupFormatter.Fragments do
           MakeupFormatter.fragment()
         ]
   def append_html(fragments, element, line: line_number) do
-    # TODO: Need to chunk_by here
     index =
       Enum.find_index(fragments, fn
         {:line, %{line: line}, _} -> line == line_number
@@ -24,49 +25,39 @@ defmodule MakeupFormatter.Fragments do
     List.insert_at(fragments, index + 1, {:html, element})
   end
 
-  @doc """
-  Wraps a token or a list of tokens around a HTML element.
-  """
-  # @spec wrap([MakeupFormatter.fragment()], function(), term()) :: MakeupFormatter.fragment()
-  def wrap(_fragments, _function, _element) do
-  end
+  def add_class(fragments, css_class, line: target_line) do
+    Mutations.mutate_metadata(fragments, fn
+      %{line_number: ^target_line} = metadata ->
+        Map.put(metadata.html_attributes, :class, css_class)
 
-  def add_class_to_line(fragments, css_class, target_line) do
-    Enum.map(fragments, fn
-      {:line, %{number: ^target_line} = metadata, tokens} ->
-        {:line, Map.put(metadata, :css_class, css_class), tokens}
-
-      other ->
-        other
+      metadata ->
+        metadata
     end)
   end
 
   def hide(fragments, from_line: from_line, to_line: to_line) do
-    Enum.map(fragments, fn
-      {:line, %{number: line_number} = attributes, tokens}
+    Mutations.mutate_metadata(fragments, fn
+      %{line_number: line_number} = metadata
       when line_number >= from_line and line_number <= to_line ->
-        {:line, %{attributes | visible?: false}, tokens}
+        %{metadata | visible?: false}
 
-      other ->
-        other
+      metadata ->
+        metadata
     end)
   end
 
   def hide(fragments) do
-    Enum.map(fragments, fn
-      {:line, metadata, tokens} -> {:line, %{metadata | visible?: false}, tokens}
-      other -> other
-    end)
+    Mutations.mutate_metadata(fragments, fn metadata -> %{metadata | visible?: false} end)
   end
 
   def show(fragments, from_line: from_line, to_line: to_line) do
-    Enum.map(fragments, fn
-      {:line, %{number: line_number} = metadata, tokens}
+    Mutations.mutate_metadata(fragments, fn
+      %{line_number: line_number} = metadata
       when line_number >= from_line and line_number <= to_line ->
-        {:line, %{metadata | visible?: true}, tokens}
+        %{metadata | visible?: true}
 
-      other ->
-        other
+      metadata ->
+        metadata
     end)
   end
 end
