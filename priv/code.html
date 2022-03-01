@@ -1,0 +1,716 @@
+<html>
+  <head>
+    <style>
+.highlight .hll {background-color: #ffffcc}
+.highlight {background-color: #eeeedd}.highlight .unselectable {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.highlight .bp {color: #658b00; } /* :name_builtin_pseudo */
+.highlight .c {color: #228B22; } /* :comment */
+.highlight .c1 {color: #228B22; } /* :comment_single */
+.highlight .ch {color: #228B22; } /* :comment_hashbang */
+.highlight .cm {color: #228B22; } /* :comment_multiline */
+.highlight .cp {color: #1e889b; } /* :comment_preproc */
+.highlight .cpf {color: #1e889b; } /* :comment_preproc_file */
+.highlight .cs {color: #8B008B; font-weight: bold; } /* :comment_special */
+.highlight .dl {color: #CD5555; } /* :string_delimiter */
+.highlight .err {color: #a61717; background-color: #e3d2d2; } /* :error */
+.highlight .fm {color: #008b45; } /* :name_function_magic */
+.highlight .gd {color: #aa0000; } /* :generic_deleted */
+.highlight .ge {font-style: italic; } /* :generic_emph */
+.highlight .gh {color: #000080; font-weight: bold; } /* :generic_heading */
+.highlight .gi {color: #00aa00; } /* :generic_inserted */
+.highlight .go {color: #888888; } /* :generic_output */
+.highlight .gp {color: #555555; } /* :generic_prompt */
+.highlight .gr {color: #aa0000; } /* :generic_error */
+.highlight .gs {font-weight: bold; } /* :generic_strong */
+.highlight .gt {color: #aa0000; } /* :generic_traceback */
+.highlight .gu {color: #800080; font-weight: bold; } /* :generic_subheading */
+.highlight .il {color: #B452CD; } /* :number_integer_long */
+.highlight .k {color: #8B008B; font-weight: bold; } /* :keyword */
+.highlight .kc {color: #8B008B; font-weight: bold; } /* :keyword_constant */
+.highlight .kd {color: #8B008B; font-weight: bold; } /* :keyword_declaration */
+.highlight .kn {color: #8B008B; font-weight: bold; } /* :keyword_namespace */
+.highlight .kp {color: #8B008B; font-weight: bold; } /* :keyword_pseudo */
+.highlight .kr {color: #8B008B; font-weight: bold; } /* :keyword_reserved */
+.highlight .kt {color: #00688B; font-weight: bold; } /* :keyword_type */
+.highlight .m {color: #B452CD; } /* :number */
+.highlight .mb {color: #B452CD; } /* :number_bin */
+.highlight .mf {color: #B452CD; } /* :number_float */
+.highlight .mh {color: #B452CD; } /* :number_hex */
+.highlight .mi {color: #B452CD; } /* :number_integer */
+.highlight .mo {color: #B452CD; } /* :number_oct */
+.highlight .na {color: #658b00; } /* :name_attribute */
+.highlight .nb {color: #658b00; } /* :name_builtin */
+.highlight .nc {color: #008b45; font-weight: bold; } /* :name_class */
+.highlight .nd {color: #707a7c; } /* :name_decorator */
+.highlight .ne {color: #008b45; font-weight: bold; } /* :name_exception */
+.highlight .nf {color: #008b45; } /* :name_function */
+.highlight .nn {color: #008b45; text-decoration: underline; } /* :name_namespace */
+.highlight .no {color: #00688B; } /* :name_constant */
+.highlight .nt {color: #8B008B; font-weight: bold; } /* :name_tag */
+.highlight .nv {color: #00688B; } /* :name_variable */
+.highlight .ow {color: #8B008B; } /* :operator_word */
+.highlight .s {color: #CD5555; } /* :string */
+.highlight .s1 {color: #CD5555; } /* :string_single */
+.highlight .s2 {color: #CD5555; } /* :string_double */
+.highlight .sa {color: #CD5555; } /* :string_affix */
+.highlight .sb {color: #CD5555; } /* :string_backtick */
+.highlight .sc {color: #CD5555; } /* :string_char */
+.highlight .sd {color: #CD5555; } /* :string_doc */
+.highlight .se {color: #CD5555; } /* :string_escape */
+.highlight .sh {color: #1c7e71; font-style: italic; } /* :string_heredoc */
+.highlight .si {color: #CD5555; } /* :string_interpol */
+.highlight .sr {color: #1c7e71; } /* :string_regex */
+.highlight .ss {color: #CD5555; } /* :string_symbol */
+.highlight .sx {color: #CD5555; } /* :string_sigil */
+.highlight .sx {color: #cb6c20; } /* :string_other */
+.highlight .vc {color: #00688B; } /* :name_variable_class */
+.highlight .vg {color: #00688B; } /* :name_variable_global */
+.highlight .vi {color: #00688B; } /* :name_variable_instance */
+.highlight .vm {color: #00688B; } /* :name_variable_magic */
+
+      body {
+        font-size: 12px;
+        font-family: ui-monospace,SFMono-Regular,SF Mono,Menlo,Consolas,Liberation Mono,monospace;
+      }
+
+      .line_number {
+        user-select: none;
+        font-size: 12px;
+        line-height: 20px;
+        text-align: right;
+        padding-right: 10px;        
+      }
+
+      .code_fragment {
+        font-size: 12px;
+        line-height: 20px;
+        word-wrap: break-word;
+        white-space: pre-wrap;
+        font-family: ui-monospace,SFMono-Regular,SF Mono,Menlo,Consolas,Liberation Mono,monospace;
+      }
+
+      .html_fragment {
+        padding: 10px;
+        border: 1px solid #999;
+        background: #fff;
+        color: #000;
+        font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji";
+      }
+    </style>
+  </head>
+  <body>
+<table class="highlight">
+  <tbody>
+
+
+
+  <tr>
+  <td class="line_number">1</td>
+  <td class="code_fragment"><span class="kd">defmodule</span><span class="w"> </span><span class="nc">MakeupFormatter.Tokens</span><span class="w"> </span><span class="k" data-group-id="">do</span><span class="w"></span></td>
+  </tr>
+
+
+
+
+
+
+  <tr>
+  <td colspan="2" class="html_fragment"><div><p>This is a comment at some line generated by the new HTML formatter for Makeup.</p><p>I have no idea what this line does!</p></div></td>
+  </tr>
+
+
+
+
+  <tr>
+  <td class="line_number">2</td>
+  <td class="code_fragment"><span class="w">  </span><span class="na">@moduledoc</span><span class="w"> </span><span class="s">&quot;&quot;&quot;</span></td>
+  </tr>
+
+
+
+
+
+  <tr>
+  <td class="line_number">3</td>
+  <td class="code_fragment"><span class="s">  Contains functions for processing Makeup tokens.</span></td>
+  </tr>
+
+
+
+
+
+  <tr>
+  <td class="line_number">4</td>
+  <td class="code_fragment"><span class="s">  &quot;&quot;&quot;</span><span class="w"></span></td>
+  </tr>
+
+
+
+
+
+  <tr>
+  <td class="line_number">5</td>
+  <td class="code_fragment"><span class="w"></span></td>
+  </tr>
+
+
+
+
+
+
+  <tr>
+  <td colspan="2" class="html_fragment"><div><p>This is a comment at some line generated by the new HTML formatter for Makeup.</p><p>I have no idea what this line does!</p></div></td>
+  </tr>
+
+
+
+
+  <tr>
+  <td class="line_number">6</td>
+  <td class="code_fragment"><span class="w">  </span><span class="kn">alias</span><span class="w"> </span><span class="nc">MakeupFormatter.Fragments.Metadata</span><span class="w"></span></td>
+  </tr>
+
+
+
+
+
+  <tr>
+  <td class="line_number">7</td>
+  <td class="code_fragment"><span class="w">  </span><span class="kn">alias</span><span class="w"> </span><span class="nc">MakeupFormatter.Tokens.Encoding</span><span class="w"></span></td>
+  </tr>
+
+
+
+
+
+  <tr>
+  <td class="line_number">8</td>
+  <td class="code_fragment"><span class="w"></span></td>
+  </tr>
+
+
+
+
+
+  <tr>
+  <td class="line_number">9</td>
+  <td class="code_fragment"><span class="w">  </span><span class="na">@doc</span><span class="w"> </span><span class="s">&quot;&quot;&quot;</span></td>
+  </tr>
+
+
+
+
+
+  <tr>
+  <td class="line_number">10</td>
+  <td class="code_fragment"><span class="s">  Transforms a list of tokens from Makeup into a fragments list.</span></td>
+  </tr>
+
+
+
+
+
+  <tr>
+  <td class="line_number">11</td>
+  <td class="code_fragment"><span class="s">  &quot;&quot;&quot;</span><span class="w"></span></td>
+  </tr>
+
+
+
+
+
+  <tr>
+  <td class="line_number">12</td>
+  <td class="code_fragment"><span class="w">  </span><span class="na">@spec</span><span class="w"> </span><span class="n">to_fragments</span><span class="p" data-group-id="">(</span><span class="p" data-group-id="">[</span><span class="nc">MakeupFormatter</span><span class="o">.</span><span class="n">makeup_token</span><span class="p" data-group-id="">(</span><span class="p" data-group-id="">)</span><span class="p" data-group-id="">]</span><span class="p" data-group-id="">)</span><span class="w"> </span><span class="o">::</span><span class="w"> </span><span class="n">list</span><span class="p" data-group-id="">(</span><span class="nc">MakeupFormatter</span><span class="o">.</span><span class="n">fragment</span><span class="p" data-group-id="">(</span><span class="p" data-group-id="">)</span><span class="p" data-group-id="">)</span><span class="w"></span></td>
+  </tr>
+
+
+
+
+
+  <tr>
+  <td class="line_number">13</td>
+  <td class="code_fragment"><span class="w">  </span><span class="kd">def</span><span class="w"> </span><span class="nf">to_fragments</span><span class="p" data-group-id="">(</span><span class="n">tokens</span><span class="p" data-group-id="">)</span><span class="w"> </span><span class="k" data-group-id="">do</span><span class="w"></span></td>
+  </tr>
+
+
+
+
+
+  <tr>
+  <td class="line_number">14</td>
+  <td class="code_fragment"><span class="w">    </span><span class="n">tokens</span><span class="w"></span></td>
+  </tr>
+
+
+
+
+
+  <tr>
+  <td class="line_number">15</td>
+  <td class="code_fragment"><span class="w">    </span><span class="o">|&gt;</span><span class="w"> </span><span class="nc">Enum</span><span class="o">.</span><span class="n">map</span><span class="p" data-group-id="">(</span><span class="o">&amp;</span><span class="nc">Encoding</span><span class="o">.</span><span class="n">escape_token</span><span class="o">/</span><span class="mi">1</span><span class="p" data-group-id="">)</span><span class="w"></span></td>
+  </tr>
+
+
+
+
+
+  <tr>
+  <td class="line_number">16</td>
+  <td class="code_fragment"><span class="w">    </span><span class="o">|&gt;</span><span class="w"> </span><span class="n">expand_tokens</span><span class="p" data-group-id="">(</span><span class="p" data-group-id="">)</span><span class="w"></span></td>
+  </tr>
+
+
+
+
+
+  <tr>
+  <td class="line_number">17</td>
+  <td class="code_fragment"><span class="w">    </span><span class="o">|&gt;</span><span class="w"> </span><span class="n">build_fragments</span><span class="p" data-group-id="">(</span><span class="p" data-group-id="">)</span><span class="w"></span></td>
+  </tr>
+
+
+
+
+
+  <tr>
+  <td class="line_number">18</td>
+  <td class="code_fragment"><span class="w">  </span><span class="k" data-group-id="">end</span><span class="w"></span></td>
+  </tr>
+
+
+
+
+
+  <tr>
+  <td class="line_number">19</td>
+  <td class="code_fragment"><span class="w"></span></td>
+  </tr>
+
+
+
+
+
+  <tr>
+  <td class="line_number">20</td>
+  <td class="code_fragment"><span class="w">  </span><span class="na">@doc</span><span class="w"> </span><span class="s">&quot;&quot;&quot;</span></td>
+  </tr>
+
+
+
+
+
+
+  <tr>
+  <td colspan="2" class="html_fragment"><div><p>This is a comment at some line generated by the new HTML formatter for Makeup.</p><p>I have no idea what this line does!</p></div></td>
+  </tr>
+
+
+
+
+  <tr>
+  <td class="line_number">21</td>
+  <td class="code_fragment"><span class="s">  Expands tokens containing line breaks into new ones. This operation is needed</span></td>
+  </tr>
+
+
+
+
+
+  <tr>
+  <td class="line_number">22</td>
+  <td class="code_fragment"><span class="s">  to accomodate multilined tokens outside of `&lt;pre&gt;&lt;/pre&gt;`.</span></td>
+  </tr>
+
+
+
+
+
+  <tr>
+  <td class="line_number">23</td>
+  <td class="code_fragment"><span class="s"></span></td>
+  </tr>
+
+
+
+
+
+  <tr>
+  <td class="line_number">24</td>
+  <td class="code_fragment"><span class="s">  The result is a 2-dimensional list where each element represents a line.</span></td>
+  </tr>
+
+
+
+
+
+  <tr>
+  <td class="line_number">25</td>
+  <td class="code_fragment"><span class="s"></span></td>
+  </tr>
+
+
+
+
+
+  <tr>
+  <td class="line_number">26</td>
+  <td class="code_fragment"><span class="s">    ## TODOs</span></td>
+  </tr>
+
+
+
+
+
+  <tr>
+  <td class="line_number">27</td>
+  <td class="code_fragment"><span class="s"></span></td>
+  </tr>
+
+
+
+
+
+  <tr>
+  <td class="line_number">28</td>
+  <td class="code_fragment"><span class="s">    * Should group_id matching with parent be added to token - specially when</span></td>
+  </tr>
+
+
+
+
+
+  <tr>
+  <td class="line_number">29</td>
+  <td class="code_fragment"><span class="s">      the parent does not have any (?)</span></td>
+  </tr>
+
+
+
+
+
+  <tr>
+  <td class="line_number">30</td>
+  <td class="code_fragment"><span class="s">    * Add example to doc</span></td>
+  </tr>
+
+
+
+
+
+  <tr>
+  <td class="line_number">31</td>
+  <td class="code_fragment"><span class="s"></span></td>
+  </tr>
+
+
+
+
+
+  <tr>
+  <td class="line_number">32</td>
+  <td class="code_fragment"><span class="s">  &quot;&quot;&quot;</span><span class="w"></span></td>
+  </tr>
+
+
+
+
+
+  <tr>
+  <td class="line_number">33</td>
+  <td class="code_fragment"><span class="w">  </span><span class="na">@spec</span><span class="w"> </span><span class="n">expand_tokens</span><span class="p" data-group-id="">(</span><span class="p" data-group-id="">[</span><span class="nc">MakeupFormatter</span><span class="o">.</span><span class="n">makeup_token</span><span class="p" data-group-id="">(</span><span class="p" data-group-id="">)</span><span class="p" data-group-id="">]</span><span class="p" data-group-id="">)</span><span class="w"> </span><span class="o">::</span><span class="w"> </span><span class="p" data-group-id="">[</span><span class="p" data-group-id="">[</span><span class="nc">MakeupFormatter</span><span class="o">.</span><span class="n">makeup_token</span><span class="p" data-group-id="">(</span><span class="p" data-group-id="">)</span><span class="p" data-group-id="">]</span><span class="p" data-group-id="">]</span><span class="w"></span></td>
+  </tr>
+
+
+
+
+
+  <tr>
+  <td class="line_number">34</td>
+  <td class="code_fragment"><span class="w">  </span><span class="kd">def</span><span class="w"> </span><span class="nf">expand_tokens</span><span class="p" data-group-id="">(</span><span class="n">tokens</span><span class="p" data-group-id="">)</span><span class="w"> </span><span class="k" data-group-id="">do</span><span class="w"></span></td>
+  </tr>
+
+
+
+
+
+  <tr>
+  <td class="line_number">35</td>
+  <td class="code_fragment"><span class="w">    </span><span class="n">tokens</span><span class="w"></span></td>
+  </tr>
+
+
+
+
+
+  <tr>
+  <td class="line_number">36</td>
+  <td class="code_fragment"><span class="w">    </span><span class="o">|&gt;</span><span class="w"> </span><span class="n">expand_tokens</span><span class="p" data-group-id="">(</span><span class="p" data-group-id="">[</span><span class="p" data-group-id="">[</span><span class="p" data-group-id="">]</span><span class="p" data-group-id="">]</span><span class="p" data-group-id="">)</span><span class="w"></span></td>
+  </tr>
+
+
+
+
+
+  <tr>
+  <td class="line_number">37</td>
+  <td class="code_fragment"><span class="w">    </span><span class="o">|&gt;</span><span class="w"> </span><span class="nc">Enum</span><span class="o">.</span><span class="n">reverse</span><span class="p" data-group-id="">(</span><span class="p" data-group-id="">)</span><span class="w"></span></td>
+  </tr>
+
+
+
+
+
+  <tr>
+  <td class="line_number">38</td>
+  <td class="code_fragment"><span class="w">  </span><span class="k" data-group-id="">end</span><span class="w"></span></td>
+  </tr>
+
+
+
+
+
+  <tr>
+  <td class="line_number">39</td>
+  <td class="code_fragment"><span class="w"></span></td>
+  </tr>
+
+
+
+
+
+  <tr>
+  <td class="line_number">40</td>
+  <td class="code_fragment"><span class="w">  </span><span class="kd">defp</span><span class="w"> </span><span class="nf">expand_tokens</span><span class="p" data-group-id="">(</span><span class="p" data-group-id="">[</span><span class="p" data-group-id="">]</span><span class="p">,</span><span class="w"> </span><span class="n">acc</span><span class="p" data-group-id="">)</span><span class="p">,</span><span class="w"> </span><span class="ss">do</span><span class="p">:</span><span class="w"> </span><span class="n">acc</span><span class="w"></span></td>
+  </tr>
+
+
+
+
+
+  <tr>
+  <td class="line_number">41</td>
+  <td class="code_fragment"><span class="w"></span></td>
+  </tr>
+
+
+
+
+
+  <tr>
+  <td class="line_number">42</td>
+  <td class="code_fragment"><span class="w">  </span><span class="kd">defp</span><span class="w"> </span><span class="nf">expand_tokens</span><span class="p" data-group-id="">(</span><span class="p" data-group-id="">[</span><span class="p" data-group-id="">{</span><span class="n">token_type</span><span class="p">,</span><span class="w"> </span><span class="n">token_meta</span><span class="p">,</span><span class="w"> </span><span class="n">token_value</span><span class="p" data-group-id="">}</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">token</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">rest</span><span class="p" data-group-id="">]</span><span class="p">,</span><span class="w"> </span><span class="p" data-group-id="">[</span><span class="n">top</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">bottom</span><span class="p" data-group-id="">]</span><span class="p" data-group-id="">)</span><span class="w"> </span><span class="k" data-group-id="">do</span><span class="w"></span></td>
+  </tr>
+
+
+
+
+
+  <tr>
+  <td class="line_number">43</td>
+  <td class="code_fragment"><span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="nc">String</span><span class="o">.</span><span class="n">split</span><span class="p" data-group-id="">(</span><span class="n">token_value</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="ss">parts</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p" data-group-id="">)</span><span class="w"> </span><span class="k" data-group-id="">do</span><span class="w"></span></td>
+  </tr>
+
+
+
+
+
+  <tr>
+  <td class="line_number">44</td>
+  <td class="code_fragment"><span class="w">      </span><span class="p" data-group-id="">[</span><span class="bp">_</span><span class="p" data-group-id="">]</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"></span></td>
+  </tr>
+
+
+
+
+
+  <tr>
+  <td class="line_number">45</td>
+  <td class="code_fragment"><span class="w">        </span><span class="n">expand_tokens</span><span class="p" data-group-id="">(</span><span class="n">rest</span><span class="p">,</span><span class="w"> </span><span class="p" data-group-id="">[</span><span class="p" data-group-id="">[</span><span class="n">token</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">top</span><span class="p" data-group-id="">]</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">bottom</span><span class="p" data-group-id="">]</span><span class="p" data-group-id="">)</span><span class="w"></span></td>
+  </tr>
+
+
+
+
+
+  <tr>
+  <td class="line_number">46</td>
+  <td class="code_fragment"><span class="w"></span></td>
+  </tr>
+
+
+
+
+
+  <tr>
+  <td class="line_number">47</td>
+  <td class="code_fragment"><span class="w">      </span><span class="p" data-group-id="">[</span><span class="n">pre_break</span><span class="p">,</span><span class="w"> </span><span class="n">post_break</span><span class="p" data-group-id="">]</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"></span></td>
+  </tr>
+
+
+
+
+
+  <tr>
+  <td class="line_number">48</td>
+  <td class="code_fragment"><span class="w">        </span><span class="n">emited_token</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p" data-group-id="">{</span><span class="n">token_type</span><span class="p">,</span><span class="w"> </span><span class="n">token_meta</span><span class="p">,</span><span class="w"> </span><span class="n">pre_break</span><span class="p" data-group-id="">}</span><span class="w"></span></td>
+  </tr>
+
+
+
+
+
+  <tr>
+  <td class="line_number">49</td>
+  <td class="code_fragment"><span class="w">        </span><span class="n">next_token</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p" data-group-id="">{</span><span class="n">token_type</span><span class="p">,</span><span class="w"> </span><span class="n">token_meta</span><span class="p">,</span><span class="w"> </span><span class="n">post_break</span><span class="p" data-group-id="">}</span><span class="w"></span></td>
+  </tr>
+
+
+
+
+
+  <tr>
+  <td class="line_number">50</td>
+  <td class="code_fragment"><span class="w">        </span><span class="n">previous_tokens</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nc">Enum</span><span class="o">.</span><span class="n">reverse</span><span class="p" data-group-id="">(</span><span class="p" data-group-id="">[</span><span class="n">emited_token</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">top</span><span class="p" data-group-id="">]</span><span class="p" data-group-id="">)</span><span class="w"></span></td>
+  </tr>
+
+
+
+
+
+  <tr>
+  <td class="line_number">51</td>
+  <td class="code_fragment"><span class="w"></span></td>
+  </tr>
+
+
+
+
+
+  <tr>
+  <td class="line_number">52</td>
+  <td class="code_fragment"><span class="w">        </span><span class="n">expand_tokens</span><span class="p" data-group-id="">(</span><span class="p" data-group-id="">[</span><span class="n">next_token</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">rest</span><span class="p" data-group-id="">]</span><span class="p">,</span><span class="w"> </span><span class="p" data-group-id="">[</span><span class="p" data-group-id="">[</span><span class="p" data-group-id="">]</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="p" data-group-id="">[</span><span class="n">previous_tokens</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">bottom</span><span class="p" data-group-id="">]</span><span class="p" data-group-id="">]</span><span class="p" data-group-id="">)</span><span class="w"></span></td>
+  </tr>
+
+
+
+
+
+  <tr>
+  <td class="line_number">53</td>
+  <td class="code_fragment"><span class="w">    </span><span class="k" data-group-id="">end</span><span class="w"></span></td>
+  </tr>
+
+
+
+
+
+  <tr>
+  <td class="line_number">54</td>
+  <td class="code_fragment"><span class="w">  </span><span class="k" data-group-id="">end</span><span class="w"></span></td>
+  </tr>
+
+
+
+
+
+  <tr>
+  <td class="line_number">55</td>
+  <td class="code_fragment"><span class="w"></span></td>
+  </tr>
+
+
+
+
+
+  <tr>
+  <td class="line_number">56</td>
+  <td class="code_fragment"><span class="w">  </span><span class="kd">defp</span><span class="w"> </span><span class="nf">build_fragments</span><span class="p" data-group-id="">(</span><span class="n">lines</span><span class="p" data-group-id="">)</span><span class="w"> </span><span class="k" data-group-id="">do</span><span class="w"></span></td>
+  </tr>
+
+
+
+
+
+  <tr>
+  <td class="line_number">57</td>
+  <td class="code_fragment"><span class="w">    </span><span class="n">lines</span><span class="w"></span></td>
+  </tr>
+
+
+
+
+
+  <tr>
+  <td class="line_number">58</td>
+  <td class="code_fragment"><span class="w">    </span><span class="o">|&gt;</span><span class="w"> </span><span class="nc">Enum</span><span class="o">.</span><span class="n">with_index</span><span class="p" data-group-id="">(</span><span class="mi">1</span><span class="p" data-group-id="">)</span><span class="w"></span></td>
+  </tr>
+
+
+
+
+
+  <tr>
+  <td class="line_number">59</td>
+  <td class="code_fragment"><span class="w">    </span><span class="o">|&gt;</span><span class="w"> </span><span class="nc">Enum</span><span class="o">.</span><span class="n">map</span><span class="p" data-group-id="">(</span><span class="k" data-group-id="">fn</span><span class="w"> </span><span class="p" data-group-id="">{</span><span class="n">line</span><span class="p">,</span><span class="w"> </span><span class="n">index</span><span class="p" data-group-id="">}</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"></span></td>
+  </tr>
+
+
+
+
+
+  <tr>
+  <td class="line_number">60</td>
+  <td class="code_fragment"><span class="w">      </span><span class="p" data-group-id="">{</span><span class="ss">:line</span><span class="p">,</span><span class="w"> </span><span class="p" data-group-id="">%</span><span class="nc" data-group-id="">Metadata</span><span class="p" data-group-id="">{</span><span class="ss">number</span><span class="p">:</span><span class="w"> </span><span class="n">index</span><span class="p">,</span><span class="w"> </span><span class="ss">visible?</span><span class="p">:</span><span class="w"> </span><span class="no">true</span><span class="p" data-group-id="">}</span><span class="p">,</span><span class="w"> </span><span class="n">line</span><span class="p" data-group-id="">}</span><span class="w"></span></td>
+  </tr>
+
+
+
+
+
+  <tr>
+  <td class="line_number">61</td>
+  <td class="code_fragment"><span class="w">    </span><span class="k" data-group-id="">end</span><span class="p" data-group-id="">)</span><span class="w"></span></td>
+  </tr>
+
+
+
+
+
+  <tr>
+  <td class="line_number">62</td>
+  <td class="code_fragment"><span class="w">  </span><span class="k" data-group-id="">end</span><span class="w"></span></td>
+  </tr>
+
+
+
+
+
+  <tr>
+  <td class="line_number">63</td>
+  <td class="code_fragment"><span class="w"></span><span class="k" data-group-id="">end</span><span class="w"></span></td>
+  </tr>
+
+
+
+
+
+  <tr>
+  <td class="line_number">64</td>
+  <td class="code_fragment"><span class="w"></span></td>
+  </tr>
+
+
+
+  </tbody>
+</table>
+  </body>
+</html>

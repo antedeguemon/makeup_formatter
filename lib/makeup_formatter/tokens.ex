@@ -3,6 +3,7 @@ defmodule MakeupFormatter.Tokens do
   Contains functions for processing Makeup tokens.
   """
 
+  alias MakeupFormatter.Fragments.Metadata
   alias MakeupFormatter.Tokens.Encoding
 
   @doc """
@@ -56,7 +57,7 @@ defmodule MakeupFormatter.Tokens do
     lines
     |> Enum.with_index(1)
     |> Enum.map(fn {line, index} ->
-      {:line, %{number: index, visible?: true}, line}
+      {:line, %Metadata{number: index, visible?: true}, line}
     end)
   end
 end

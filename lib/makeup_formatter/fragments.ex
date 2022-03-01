@@ -15,10 +15,10 @@ defmodule MakeupFormatter.Fragments do
   @spec append_html([MakeupFormatter.fragment()], term(), line: non_neg_integer()) :: [
           MakeupFormatter.fragment()
         ]
-  def append_html(fragments, element, line: line_number) do
+  def append_html(fragments, element, line: target_line) do
     index =
       Enum.find_index(fragments, fn
-        {:line, %{line: line}, _} -> line == line_number
+        {:line, %{number: ^target_line}, _} -> true
         _ -> false
       end)
 
@@ -27,8 +27,9 @@ defmodule MakeupFormatter.Fragments do
 
   def add_class(fragments, css_class, line: target_line) do
     Mutations.mutate_metadata(fragments, fn
-      %{line_number: ^target_line} = metadata ->
-        Map.put(metadata.html_attributes, :class, css_class)
+      %{number: ^target_line} = metadata ->
+        html_attributes = Map.put(metadata.html_attributes, "class", css_class)
+        %{metadata | html_attributes: html_attributes}
 
       metadata ->
         metadata
@@ -37,7 +38,7 @@ defmodule MakeupFormatter.Fragments do
 
   def hide(fragments, from_line: from_line, to_line: to_line) do
     Mutations.mutate_metadata(fragments, fn
-      %{line_number: line_number} = metadata
+      %{number: line_number} = metadata
       when line_number >= from_line and line_number <= to_line ->
         %{metadata | visible?: false}
 
@@ -52,7 +53,7 @@ defmodule MakeupFormatter.Fragments do
 
   def show(fragments, from_line: from_line, to_line: to_line) do
     Mutations.mutate_metadata(fragments, fn
-      %{line_number: line_number} = metadata
+      %{number: line_number} = metadata
       when line_number >= from_line and line_number <= to_line ->
         %{metadata | visible?: true}
 

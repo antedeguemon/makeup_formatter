@@ -8,6 +8,10 @@
         font-family: ui-monospace,SFMono-Regular,SF Mono,Menlo,Consolas,Liberation Mono,monospace;
       }
 
+      .table {
+        border-spacing: 0px;
+      }
+
       .line_number {
         user-select: none;
         font-size: 12px;

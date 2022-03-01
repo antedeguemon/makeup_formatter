@@ -35,15 +35,15 @@ element = [
 # Appends above element into some lines
 fragments = \
   fragments \
-  |> MakeupFormatter.Fragments.append_html(element, line: 10) \
-  |> MakeupFormatter.Fragments.append_html(element, line: 20) \
-  |> MakeupFormatter.Fragments.append_html(element, line: 200)
+  |> MakeupFormatter.Fragments.append_html(element, line: 1) \
+  |> MakeupFormatter.Fragments.append_html(element, line: 5) \
+  |> MakeupFormatter.Fragments.append_html(element, line: 20)
 
 # Formats fragments into a HTML page, including stylesheet
 html = MakeupFormatter.format_page(fragments, style: :perldoc_style)
 
-# Use `format/1` for formatting only the highlighted code
-# html = MakeupFormatter.format(fragments)
+# You can also use `format/1` to format only the highlighted code
+## html = MakeupFormatter.format(fragments)
 
 # Generated HTML containing highlighted code is saved to `priv/code.html` :)
 File.write!("priv/code.html", html)
